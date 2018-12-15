@@ -1,0 +1,97 @@
+page-user-info {
+
+  .col {
+    position : initial !important;
+  }
+
+    .note-md, .note-ios {
+        color: darkgray;
+        font-size: 1em;
+      }
+    
+      .item-input .label-ios {
+        color: #999;
+      }
+    
+      .mycolLogin {
+        margin-top: 11% !important;
+      }
+    
+      .let-signin {
+        text-align: center !important;
+        margin-top: -2% !important;
+      }
+    
+      .input-row {
+        margin-top: -3% !important;
+      }
+    
+      .forgot {
+        text-align: right;
+      }
+    
+      @media only screen and (min-width: 412px) and (max-width: 768px) {
+        .myitem {
+          width: 42vw;
+        }
+      }
+    
+      .connect {
+        margin-top: 5% !important;
+      }
+    
+      .input-row {
+        @include margin(1%, -8%, null, null);
+      }
+    
+      .hr-width {
+        width: 18vw;
+        height: 0.3vw;
+      }
+    
+      [icon-left] ion-icon, [icon-start] ion-icon {
+        font-size: 2.4em;
+      }
+    
+      .second-line {
+        margin-left: -5vw !important;
+      }
+    
+      .skip {
+        margin-left: 85% !important;
+        margin-top: -3vw !important;
+      }
+
+    .item-md.item-block .item-inner {
+      padding-right: 8px;
+      border-bottom: 1px solid #b73ab5;
+    }
+   .item-md {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    ion-avatar img {
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      margin: auto;
+    }
+    .edit {
+      position: absolute;
+      top: 0;
+      height: 25px;
+    margin-top: 18%;
+    margin-left: 35%;
+      padding: 6px !important;
+      border-radius: 50% !important;
+      background: black !important;
+    }
+
+    .grid {
+      margin-top: 5% !important;
+    }
+    .input-cover {
+      display: none;
+  }
+}

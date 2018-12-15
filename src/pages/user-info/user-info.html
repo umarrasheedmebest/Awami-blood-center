@@ -1,0 +1,115 @@
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>User Info</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+    <ion-avatar>
+        <img [src]="profilePic? profilePic: 'assets/imgs/person-placeholder.png'"  onerror="this.onerror=null;this.src='assets/imgs/person-placeholder.png';">
+      </ion-avatar>
+      <img class="edit" src="assets/imgs/pencil-icon.svg" (click)="openImagePickerCrop()">
+  <ion-grid>
+    <form [formGroup]="loginForm">
+      <ion-row class="input-row">
+        <ion-col col-2 class="mycolLogin">
+          <ion-icon class="username" name="ios-contact-outline"></ion-icon>
+        </ion-col>
+        <ion-col col-10>
+          <ion-item>
+            <ion-label floating>Full Name</ion-label>
+            <ion-input formControlName="fullName" type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="input-row">
+        <ion-col col-2 class="mycolLogin">
+          <ion-icon class="username" name="ios-home-outline"></ion-icon>
+        </ion-col>
+        <ion-col col-10>
+          <ion-item>
+              <ion-label floating>Select City</ion-label>
+              <ion-input tapable (click)="presentCityModal()" formControlName="area" disable="true"></ion-input>
+
+              <!-- <ion-input class="inputlocation" [(ngModel)]="autocomplete.input" formControlName="area" (input)="updateSearchResults()" type="text"></ion-input> -->
+              <!-- <ion-select formControlName="area"> -->
+                  <!-- <ion-option value="Lahore">Lahore</ion-option> -->
+                  <!-- <ion-option value="Islamabad">Islamabad</ion-option>
+                  <ion-option value="Karachi">Karachi</ion-option> -->
+              <!-- </ion-select> -->
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row class="input-row">
+          <ion-col col-2 class="mycolLogin">
+            <ion-icon class="username" name="ios-locate-outline"></ion-icon>
+          </ion-col>
+          <ion-col col-10>
+            <ion-item>
+                <ion-label floating>Enter Address</ion-label>
+                <ion-textarea class="inputlocation" formControlName="address" (input)="updateSearchResults()" type="text"></ion-textarea>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      <ion-list [hidden]="autocompleteItems.length == 0">
+          <ion-item *ngFor="let item of autocompleteItems" tappable (click)="selectSearchResult(item)" no-lines>
+            {{ item.description }}
+          </ion-item>
+        </ion-list>
+      <ion-row class="input-row">
+        <ion-col col-2 class="mycolLogin">
+          <ion-icon class="username" name="ios-phone-portrait-outline"></ion-icon>
+        </ion-col>
+        <ion-col col-10>
+          <ion-item>
+            <ion-label floating>Mobile</ion-label>
+            <ion-input formControlName="mobile" type="number"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row class="input-row">
+        <ion-col col-2 class="mycolLogin">
+          <ion-icon class="username" name="ios-water-outline"></ion-icon>
+        </ion-col>
+        <ion-col col-10>
+          <ion-item>
+            <ion-label floating>Select Blood Group</ion-label>
+            <ion-select formControlName="bloodgroup">
+              <ion-option value="A+">A+</ion-option>
+              <ion-option value="A-">A-</ion-option>
+              <ion-option value="B+">B+</ion-option>
+              <ion-option value="B-">B-</ion-option>
+              <ion-option value="AB+">AB+</ion-option>
+              <ion-option value="AB-">AB-</ion-option>
+              <ion-option value="O+">O+</ion-option>
+              <ion-option value="O-">O-</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </form>
+
+    <ion-row class="input-row">
+        <ion-col col-2 class="mycolLogin">
+          <ion-icon class="username" name="ios-calendar-outline"></ion-icon>
+        </ion-col>
+        <ion-col col-10 style="margin-top: 5%;">
+            <ion-item>
+              <ion-label>Last Donated</ion-label>
+              <ion-datetime displayFormat="MMMM-DD-YYYY" [(ngModel)]="myDate"></ion-datetime>
+            </ion-item>
+          </ion-col>
+      </ion-row>
+     
+      <ion-row>
+        <ion-col text-center>
+          <button class="signin" color="danger" ion-button round (click)="createProfile()">
+            Update Profile
+          </button>
+        </ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-content>

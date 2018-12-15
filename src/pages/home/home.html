@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-row class="row-top">
+    <ion-col col-2>
+      <button ion-button menuToggle left clear class="sideMenu">
+        <ion-icon color="label" class="menuIcon" name="menu"></ion-icon>
+      </button>
+    </ion-col>
+    <ion-col col-8>
+      <ion-title>Search Donars</ion-title>
+      <!-- <ion-input type="text" placeholder="SEARCH HERE" [formControl]="searchControl" (ionInput)="searchDonar()" [(ngModel)]="searchTerm"></ion-input> -->
+    </ion-col>
+    <!-- <ion-col col-2 class="home-left-top-imgs">
+      <img class="microPhone" src="assets/icon/svg/microphone.svg" (click)="startRecognition()">
+    </ion-col> -->
+  </ion-row>
+</ion-header>
+<!-- autoplay="5000"  -->
+<ion-content padding>
+  <!-- <ion-label class="tipsLabel">Tips For Donation:</ion-label>
+    <ion-slides autoplay="5000" loop="true" >
+      <ion-slide *ngFor="let tips of imageTips">
+        <img [src]="tips.img" />
+      </ion-slide>
+    </ion-slides> -->
+
+  <ion-row class="input-row">
+    <ion-col>
+      <ion-item>
+        <ion-label floating>Select Blood Group</ion-label>
+        <ion-select [(ngModel)]="bloodgroup">
+          <ion-option value="A+">A+</ion-option>
+          <ion-option value="A-">A-</ion-option>
+          <ion-option value="B+">B+</ion-option>
+          <ion-option value="B-">B-</ion-option>
+          <ion-option value="AB+">AB+</ion-option>
+          <ion-option value="AB-">AB-</ion-option>
+          <ion-option value="O+">O+</ion-option>
+          <ion-option value="O-">O-</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row class="first-row">
+    <ion-col>
+      <ion-item>
+        <ion-label floating>Select City</ion-label>
+        <ion-input tapable (click)="presentCityModal()" [(ngModel)]="area" disable="true"></ion-input>
+        <!-- <ion-select [(ngModel)]="area"> -->
+          <!-- <ion-option value="Lahore">Lahore</ion-option> -->
+          <!-- <ion-option value="Islamabad">Islamabad</ion-option>
+          <ion-option value="Karachi">Karachi</ion-option> -->
+        <!-- </ion-select> -->
+        <!-- <ion-label floating>Search Location</ion-label> -->
+        <!-- <ion-input class="inputlocation" [(ngModel)]="autocomplete.input" (input)="updateSearchResults()" type="text"></ion-input> -->
+      </ion-item>
+
+    </ion-col>
+  </ion-row>
+  <!-- <ion-list [hidden]="autocompleteItems.length == 0">
+    <ion-item *ngFor="let item of autocompleteItems" tappable (click)="selectSearchResult(item)" no-lines>
+      {{ item.description }}
+    </ion-item>
+  </ion-list> -->
+
+
+  <ion-row>
+    <ion-col text-center>
+      <button class="signin search" color="danger" ion-button round (click)="searchDonars()">
+        Search
+      </button>
+    </ion-col>
+  </ion-row>
+
+</ion-content>

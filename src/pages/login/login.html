@@ -1,0 +1,70 @@
+<ion-content class="loginContent" padding>
+  <!-- <button ion-button color="skip" class="skip" clear text-capitalize (click)="skipToDashboard()">Skip</button> -->
+  <ion-label class="let-signin">Let's get you sign in first, shell we?</ion-label>
+  <div class="dummy"></div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-3>
+        <button (click)="facebookLogin()" class="myitem" color="facebook" ion-button icon-start round>
+          <ion-icon ios="logo-facebook" md="logo-facebook"></ion-icon>
+          <span>Facebook</span>
+        </button>
+      </ion-col>
+      <ion-col col-3 offset-3>
+        <button (click)="loginWithGoogle()" class="myitem" ion-button icon-start round outline>
+          <ion-icon ios="ios-mail" md="md-mail"></ion-icon>
+          <span>Email</span>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="connect">
+      <ion-col col-2>
+        <hr class="hr-width">
+      </ion-col>
+      <ion-col col-8 text-center class="col8">
+        <ion-note>Connect with Email</ion-note>
+      </ion-col>
+      <ion-col class="second-line" col-2>
+        <hr class="hr-width">
+      </ion-col>
+    </ion-row>
+    <form [formGroup]="loginForm">
+      <ion-row class="input-row">
+        <ion-col col-2 class="mycolLogin">
+          <ion-icon class="username" name="ios-mail-outline"></ion-icon>
+        </ion-col>
+        <ion-col col-10>
+          <ion-item>
+            <ion-label floating>Email</ion-label>
+            <ion-input type="email" formControlName="email"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row class="input-row">
+        <ion-col col-2 class="mycolLogin">
+          <ion-icon class="username" name="ios-lock-outline"></ion-icon>
+        </ion-col>
+        <ion-col col-10>
+          <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-center>
+          <button class="signin" color="signin" ion-button round (click)="login()">
+            Sign In
+          </button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-center>
+          <ion-note color="remtext">Don't have account yet?</ion-note>
+          <a color="danger" (click)="goToRegister()">Signup</a>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,36 @@
+
+<ion-menu [content]="content">
+  <ion-content>
+
+      <ion-list style="margin-left: 0px !important; margin-right: 0px !important;">
+          <ion-item color="danger" style="border-bottom: 1px solid;"no-lines>
+              <ion-avatar item-start  menuClose tappable (click)="openSettings()">
+                  <img [src]="userData?.pic ? userData?.pic : 'assets/imgs/place-holder.jpg'"  onerror="this.onerror=null;this.src='assets/imgs/place-holder.jpg';">
+              </ion-avatar>
+              <h3>{{userData?.fullName}}</h3>
+              <ion-note>4.9</ion-note>
+              <ion-icon name="star"></ion-icon>
+          </ion-item>
+          <ion-item color="danger" style="border-bottom: none;" no-lines>
+              <p ion-text text-wrap>
+                  <br>Saving One Life Is As If Saving 
+                  <br> Whole Of Humanity…
+                  <br>Quran 5:32</p>
+          </ion-item>
+      </ion-list>
+
+      
+      <ion-list *ngIf="pages">
+          <ion-label menuClose *ngFor="let p of pages" (click)="openPage(p)" style="line-height: 30px !important;">
+              {{p.title}}
+          </ion-label>
+          <ion-label menuClose tappable (click)="logout()" style="line-height: 30px !important;">
+            Logout
+        </ion-label>
+      </ion-list>
+  </ion-content>
+</ion-menu>
+
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

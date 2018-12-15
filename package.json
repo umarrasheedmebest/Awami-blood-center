@@ -1,0 +1,100 @@
+{
+    "name": "BloodDonar3",
+    "version": "0.0.1",
+    "author": "Ionic Framework",
+    "homepage": "http://ionicframework.com/",
+    "private": true,
+    "scripts": {
+        "start": "ionic-app-scripts serve",
+        "clean": "ionic-app-scripts clean",
+        "build": "ionic-app-scripts build",
+        "lint": "ionic-app-scripts lint",
+        "ionic:build": "node --max-old-space-size=8192 ./node_modules/@ionic/app-scripts/bin/ionic-app-scripts.js build"
+    },
+    "dependencies": {
+        "@angular/animations": "5.2.11",
+        "@angular/common": "5.2.11",
+        "@angular/compiler": "5.2.11",
+        "@angular/compiler-cli": "5.2.11",
+        "@angular/core": "5.2.11",
+        "@angular/forms": "5.2.11",
+        "@angular/http": "5.2.11",
+        "@angular/platform-browser": "5.2.11",
+        "@angular/platform-browser-dynamic": "5.2.11",
+        "@firebase/database": "^0.2.1",
+        "@ionic-native/call-number": "^4.17.0",
+        "@ionic-native/core": "~4.15.0",
+        "@ionic-native/crop": "^4.17.0",
+        "@ionic-native/facebook": "^4.16.0",
+        "@ionic-native/image-picker": "^4.17.0",
+        "@ionic-native/network": "^4.17.0",
+        "@ionic-native/screen-orientation": "^4.17.0",
+        "@ionic-native/speech-recognition": "^4.17.0",
+        "@ionic-native/splash-screen": "~4.15.0",
+        "@ionic-native/sqlite": "^4.17.0",
+        "@ionic-native/status-bar": "~4.15.0",
+        "@ionic/storage": "^2.2.0",
+        "angular-typing-animation": "^0.5.4",
+        "angularfire2": "^5.1.0",
+        "call-number": "^1.0.1",
+        "cordova-android": "^7.0.0",
+        "cordova-plugin-crop": "^0.4.0",
+        "cordova-plugin-device": "^2.0.2",
+        "cordova-plugin-facebook4": "^3.1.0",
+        "cordova-plugin-ionic-keyboard": "^2.1.3",
+        "cordova-plugin-ionic-webview": "^1.2.1",
+        "cordova-plugin-network-information": "^2.0.1",
+        "cordova-plugin-screen-orientation": "^3.0.1",
+        "cordova-plugin-speechrecognition": "^1.2.0",
+        "cordova-plugin-splashscreen": "^5.0.2",
+        "cordova-plugin-statusbar": "^2.4.2",
+        "cordova-plugin-telerik-imagepicker": "^2.2.2",
+        "cordova-plugin-whitelist": "^1.3.3",
+        "cordova-sqlite-storage": "^2.5.1",
+        "es6-promise-plugin": "^4.1.0",
+        "firebase": "^5.5.6",
+        "ionic-angular": "3.9.2",
+        "ionicons": "3.0.0",
+        "moment": "^2.22.2",
+        "mx.ferreyra.callnumber": "~0.0.2",
+        "rxjs": "^6.0.0",
+        "rxjs-compat": "^6.3.3",
+        "sw-toolbox": "3.6.0",
+        "time-ago-pipe": "^1.3.2",
+        "typed.js": "^2.0.9",
+        "zone.js": "0.8.26"
+    },
+    "devDependencies": {
+        "@ionic/app-scripts": "^3.2.0",
+        "ionic": "4.2.1",
+        "typescript": "~2.6.2"
+    },
+    "description": "An Ionic project",
+    "cordova": {
+        "plugins": {
+            "cordova-plugin-whitelist": {},
+            "cordova-plugin-statusbar": {},
+            "cordova-plugin-device": {},
+            "cordova-plugin-splashscreen": {},
+            "cordova-plugin-ionic-keyboard": {},
+            "cordova-plugin-facebook4": {
+                "APP_ID": "1911694842471298",
+                "APP_NAME": "BloodDonar",
+                "FACEBOOK_ANDROID_SDK_VERSION": "4.37.0"
+            },
+            "mx.ferreyra.callnumber": {},
+            "cordova-plugin-speechrecognition": {},
+            "cordova-plugin-telerik-imagepicker": {
+                "PHOTO_LIBRARY_USAGE_DESCRIPTION": "your usage message"
+            },
+            "cordova-plugin-crop": {},
+            "cordova-plugin-ionic-webview": {},
+            "cordova-plugin-network-information": {},
+            "cordova-plugin-screen-orientation": {},
+            "cordova-sqlite-storage": {}
+        },
+        "platforms": [
+            "android"
+        ]
+    }
+}

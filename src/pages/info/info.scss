@@ -1,0 +1,40 @@
+page-info {
+    .content{
+        background-color: #c44a4a;
+    }
+
+    .heading{
+        color: white;
+    }    
+
+    .detail {
+        font-size: 1em; 
+        padding: 10px;
+        color: white;
+    }
+    .swiper-pagination-bullet{
+        background: white;
+    }
+
+    .skip-btn {
+        position: absolute;
+        top: 2%;
+        right: 3%;
+        height: 2.5rem;
+        width: 7rem;
+        font-size: 1.2rem;
+        color: #000;
+        background-color: #ffffff;
+        font-family: Lato-SemiBold;
+        z-index: 9999;
+      }
+
+      [icon-right] ion-icon, [icon-end] ion-icon {
+        font-size: 2em;
+        line-height: .67;
+        pointer-events: none;
+        margin-left: 25% !important;
+        margin-top: -4% !important;
+     }
+
+}

@@ -1,0 +1,17 @@
+page-donar-list {
+    .item-md {
+        padding-left: 0px !important; 
+    }
+    .circle:before {
+        content: ' \25CF';
+        font-size: 20px;
+        float: right;
+        color: red;
+      }
+      .circle-green:before {
+        content: ' \25CF';
+        font-size: 20px;
+        float: right;
+        color: green;
+      }
+}
