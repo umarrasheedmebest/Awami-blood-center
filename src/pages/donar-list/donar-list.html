@@ -9,12 +9,12 @@
   <ion-navbar color="danger">
     <ion-title>Donars List({{donars?.length}})</ion-title>
   </ion-navbar>
+  <ion-searchbar [(ngModel)]="query"></ion-searchbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <ion-searchbar [(ngModel)]="query"></ion-searchbar>
   <ion-list *ngIf="donars?.length > 0">
     <ion-item  *ngFor="let donar of donars| searchDonar:'bloodGroup,area,fullName':query" (click)="viewDetail(donar)">
       <ion-avatar item-start>

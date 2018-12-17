@@ -42,20 +42,20 @@ import { CitiesListPage } from '../pages/cities-list/cities-list';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    LoginPage,
-    SignUpPage,
-    InfoPage,
-    DonarListPage,
-    DonarDetailPage,
-    UserInfoPage,
-    TimeAgoPipe,
-    MyRequestsPage,
-    OthersRequestsPage,
-    AboutUsPage,
-    TermsAndConditionsPage,
-    TypingAnimationDirective,
-    CitiesListPage
+    // HomePage,
+    // LoginPage,
+    // SignUpPage,
+    // InfoPage,
+    // DonarListPage,
+    // DonarDetailPage,
+    // UserInfoPage,
+    // TimeAgoPipe,
+    // MyRequestsPage,
+    // OthersRequestsPage,
+    // AboutUsPage,
+    // TermsAndConditionsPage,
+    // TypingAnimationDirective,
+    // CitiesListPage
 
   ],
   imports: [

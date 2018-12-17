@@ -9,12 +9,11 @@
   <ion-navbar color="danger">
     <ion-title>Select City</ion-title>
   </ion-navbar>
-
+  <ion-searchbar placeholder="Search City"[(ngModel)]="query"></ion-searchbar>
 </ion-header>
 
 
 <ion-content padding>
-    <ion-searchbar [(ngModel)]="query"></ion-searchbar>
   <ion-list *ngIf="citiesList">
     <button ion-item *ngFor="let item of citiesList | simpleSearch : query" (click)="itemSelected(item)">
       {{ item }}

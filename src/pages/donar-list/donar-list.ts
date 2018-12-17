@@ -91,7 +91,7 @@ export class DonarListPage {
     if (days >= 90) {
       this.navCtrl.push(DonarDetailPage, { data: donarDetail });
     } else {
-      this.auth.presentToast('Last time donated ' + days+ ' days ago');
+      this.auth.presentToast(donarDetail.fullName+' will be available after ' + (90-days) + ' days');
     }
   }
 

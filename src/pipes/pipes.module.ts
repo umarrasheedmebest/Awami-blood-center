@@ -7,13 +7,13 @@ import { SimpleSearchPipe } from './simple-search/simple-search';
 	declarations: [SearchDonarPipe,
 		DaysCounterPipe,
     SimpleSearchPipe,
-		//TimeAgoPipe
+		TimeAgoPipe
 	],
 	imports: [],
 	exports: [SearchDonarPipe,
 		DaysCounterPipe,
     SimpleSearchPipe,
-		//TimeAgoPipe
+		TimeAgoPipe
 	]
 })
 export class PipesModule { }
