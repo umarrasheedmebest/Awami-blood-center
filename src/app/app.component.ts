@@ -17,6 +17,7 @@ import { AboutUsPage } from '../pages/about-us/about-us';
 import { TermsAndConditionsPage } from '../pages/terms-and-conditions/terms-and-conditions';
 import { Storage } from '@ionic/storage';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { HelpPage } from '../pages/help/help';
 
 @Component({
   templateUrl: 'app.html'
@@ -24,7 +25,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any ;//= AboutUsPage;
+  rootPage: any ;//= HelpPage;
   userData: any;
 
   pages: Array<{ title: string, component: any }>;
@@ -37,9 +38,10 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'All Donars', component: DonarListPage },
       { title: 'My Blood Requests', component: MyRequestsPage },
-      { title: 'Others Blood Requests', component: OthersRequestsPage },
+      { title: 'Blood Requests', component: OthersRequestsPage },
       { title: 'Settings', component: UserInfoPage },
       { title: 'About Us', component: AboutUsPage },
+      { title: 'Help', component: HelpPage },
       { title: 'Terms and Conditions', component: TermsAndConditionsPage },
     ];
 
@@ -84,7 +86,6 @@ export class MyApp {
           });
       }
     });
-  //https://umar_rasheed_mebest@bitbucket.org/umar_rasheed_mebest/blooddonarapp.git
   }
 
   openPage(page) {

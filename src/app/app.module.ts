@@ -37,6 +37,7 @@ import { Network } from '@ionic-native/network';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 import { CitiesListPage } from '../pages/cities-list/cities-list';
+import { HelpPage } from '../pages/help/help';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { CitiesListPage } from '../pages/cities-list/cities-list';
     // AboutUsPage,
     // TermsAndConditionsPage,
     // TypingAnimationDirective,
-    // CitiesListPage
+    // CitiesListPage,
+    // HelpPage
 
   ],
   imports: [
@@ -81,7 +83,8 @@ import { CitiesListPage } from '../pages/cities-list/cities-list';
     OthersRequestsPage,
     AboutUsPage,
     TermsAndConditionsPage,
-    CitiesListPage
+    CitiesListPage,
+    HelpPage
   ],
   providers: [
     StatusBar,

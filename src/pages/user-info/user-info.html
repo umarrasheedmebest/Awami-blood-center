@@ -99,7 +99,7 @@
         <ion-col col-10 style="margin-top: 5%;">
             <ion-item>
               <ion-label>Last Donated</ion-label>
-              <ion-datetime displayFormat="MMMM-DD-YYYY" [(ngModel)]="myDate"></ion-datetime>
+              <ion-datetime displayFormat="MMMM-DD-YYYY" [max]="maxDate" [(ngModel)]="myDate"></ion-datetime>
             </ion-item>
           </ion-col>
       </ion-row>

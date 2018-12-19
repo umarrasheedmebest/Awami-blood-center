@@ -34,6 +34,7 @@ export class UserInfoPage {
   uid: any;
   mypic: string;
   userInfo: any;
+  maxDate: any;
   constructor(public modalCtrl: ModalController, private storage: Storage, private zone: NgZone, private cropService: Crop, private imagePicker: ImagePicker, public events: Events, public afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase, public auth: AuthService, public navCtrl: NavController, public navParams: NavParams, public builder: FormBuilder) {
     this.autocomplete = { input: '' };
     this.autocompleteItems = [];
@@ -42,6 +43,7 @@ export class UserInfoPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UserInfoPage');
+    this.maxDate = new Date().toISOString();;
     this.GoogleAutocomplete = new google.maps.places.AutocompleteService();
   }
 
@@ -245,7 +247,7 @@ export class UserInfoPage {
     profileModal.onDidDismiss(data => {
       console.log('city',data);
       if(data) {
-        this.area = data.city;
+        this.loginForm.controls['area'].setValue(  data.city);
       }
     });
     profileModal.present();
