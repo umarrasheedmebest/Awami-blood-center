@@ -1,5 +1,5 @@
 import { Component, NgZone } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { FormControl } from '@angular/forms';
 import { debounceTime } from "rxjs/operator/debounceTime";
 import { DonarListPage } from '../donar-list/donar-list';
@@ -33,11 +33,12 @@ export class HomePage {
   autocompleteItems: any;
   usersRef: AngularFireList<any>;
   users: Observable<any[]>;
-  constructor(public modalCtrl: ModalController, public menuCtrl: MenuController, private sqlite: SQLite, private storage: Storage, private speechRecognition: SpeechRecognition, public auth: AuthService, private zone: NgZone, public navCtrl: NavController, private afDatabase: AngularFireDatabase) {
+  constructor(public navParams: NavParams, public modalCtrl: ModalController, public menuCtrl: MenuController, private sqlite: SQLite, private storage: Storage, private speechRecognition: SpeechRecognition, public auth: AuthService, private zone: NgZone, public navCtrl: NavController, private afDatabase: AngularFireDatabase) {
     this.searchControl = new FormControl();
     console.log('Donars', this.afDatabase.list('/profile'));
     this.autocomplete = { input: '' };
     this.autocompleteItems = [];
+    console.log('Message', this.navParams.get('message'));
   }
 
   ionViewDidLoad() {

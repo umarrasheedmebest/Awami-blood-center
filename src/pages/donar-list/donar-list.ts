@@ -9,12 +9,6 @@ import { Storage } from '@ionic/storage';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 import * as moment from 'moment';
 
-/**
- * Generated class for the DonarListPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -28,8 +22,7 @@ export class DonarListPage {
   area: any;
   search: boolean = false;
   constructor(private sqlite: SQLite, private storage: Storage, public auth: AuthService, private callNumber: CallNumber, private zone: NgZone, public navCtrl: NavController, public navParams: NavParams, private afDatabase: AngularFireDatabase) {
-    // this.donars = this.afDatabase.list('/profile');
-    // console.log('donars', this.donars);
+
     if (this.auth.isOnline()) {
       if (this.navParams.get('donars')) {
         this.donars = this.navParams.get('donars');
@@ -53,15 +46,6 @@ export class DonarListPage {
         this.search = true;
       }
       this.getAllBrands();
-      // this.storage.get('donarsLis').then(value => {
-      //   if (value) {
-      //     console.log('donars', value);
-      //     //this.donars = value;
-      //     this.getDonars(value);
-      //   } else {
-      //     this.auth.presentToast('No Record');
-      //   }
-      // })
     }
 
   }

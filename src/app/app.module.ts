@@ -38,6 +38,8 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 import { CitiesListPage } from '../pages/cities-list/cities-list';
 import { HelpPage } from '../pages/help/help';
+import { TotalDonarPage } from '../pages/total-donar/total-donar';
+import { OneSignal } from '@ionic-native/onesignal';
 
 
 @NgModule({
@@ -57,8 +59,8 @@ import { HelpPage } from '../pages/help/help';
     // TermsAndConditionsPage,
     // TypingAnimationDirective,
     // CitiesListPage,
-    // HelpPage
-
+    // HelpPage,
+    // TotalDonarPage
   ],
   imports: [
     BrowserModule,
@@ -84,7 +86,8 @@ import { HelpPage } from '../pages/help/help';
     AboutUsPage,
     TermsAndConditionsPage,
     CitiesListPage,
-    HelpPage
+    HelpPage,
+    TotalDonarPage
   ],
   providers: [
     StatusBar,
@@ -102,7 +105,8 @@ import { HelpPage } from '../pages/help/help';
     PipesModule,
     Network,
     ScreenOrientation,
-    SQLite
+    SQLite,
+    OneSignal
   ]
 })
 export class AppModule {}

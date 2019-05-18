@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "926099624994",
+    "firebase_url": "https://blood-donar-58f3d.firebaseio.com",
+    "project_id": "blood-donar-58f3d",
+    "storage_bucket": "blood-donar-58f3d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:926099624994:android:540fe3008fa6a648",
+        "android_client_info": {
+          "package_name": "com.BloodDonar.UmarRasheed"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "926099624994-2qiip2n1b6k9isfdk1ft6q49jrjn4i27.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.BloodDonar.UmarRasheed",
+            "certificate_hash": "5298a0e5e79d9be29dc9f6e524fc4ba8e97657fd"
+          }
+        },
+        {
+          "client_id": "926099624994-pfgo2lk5e66li67grctb2sboliqvi568.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0Yeao2Wbg3YnINOhTRwR75dGILJIM6ZE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "926099624994-pfgo2lk5e66li67grctb2sboliqvi568.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "926099624994-mvi3ibvrjl0ae5pbf8t580h4gvpsfoom.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.BloodDonar.UmarRasheed"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

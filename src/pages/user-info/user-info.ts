@@ -1,5 +1,5 @@
 import { Component, NgZone } from '@angular/core';
-import { IonicPage, NavController, NavParams, normalizeURL, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, normalizeURL, ModalController, AlertController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { AuthService } from '../../providers/auth/auth';
 import { HomePage } from '../home/home';
@@ -35,7 +35,7 @@ export class UserInfoPage {
   mypic: string;
   userInfo: any;
   maxDate: any;
-  constructor(public modalCtrl: ModalController, private storage: Storage, private zone: NgZone, private cropService: Crop, private imagePicker: ImagePicker, public events: Events, public afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase, public auth: AuthService, public navCtrl: NavController, public navParams: NavParams, public builder: FormBuilder) {
+  constructor(private alertCtrl: AlertController, public modalCtrl: ModalController, private storage: Storage, private zone: NgZone, private cropService: Crop, private imagePicker: ImagePicker, public events: Events, public afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase, public auth: AuthService, public navCtrl: NavController, public navParams: NavParams, public builder: FormBuilder) {
     this.autocomplete = { input: '' };
     this.autocompleteItems = [];
     this.createForm();
@@ -74,14 +74,30 @@ export class UserInfoPage {
         if (this.userInfo) {
           this.storage.set('userInfo', this.userInfo);
           this.events.publish('user:created', this.userInfo);
-          if (this.navParams.get('data')) {
+          if (this.navParams.get('push')) {
+            console.log('pushing............',this.navParams.get('push'));
+            this.showAlert();
             this.setUserData();
           } else {
-            this.navCtrl.setRoot(HomePage);
+            console.log('esleeinnnnngggg............');
+            if (this.navParams.get('data')) {
+              this.setUserData();
+            } else {
+              this.navCtrl.setRoot(HomePage);
+            }
           }
         }
       });
     });
+  }
+
+  showAlert() {
+    const alert = this.alertCtrl.create({
+      title: 'UserInfo Page',
+      subTitle: 'Please update date field',
+      buttons: ['OK']
+    });
+    alert.present();
   }
 
   createForm() {
@@ -114,7 +130,7 @@ export class UserInfoPage {
             this.events.publish('user:created', credentials);
             this.storage.set('userInfo', this.userInfo);
             this.auth.presentToast('Profile Updated Successfully!');
-            this.navCtrl.setRoot(HomePage);
+           this.navCtrl.setRoot(HomePage);
           })
         })
       } else {
@@ -245,9 +261,9 @@ export class UserInfoPage {
   presentCityModal() {
     let profileModal = this.modalCtrl.create(CitiesListPage);
     profileModal.onDidDismiss(data => {
-      console.log('city',data);
-      if(data) {
-        this.loginForm.controls['area'].setValue(  data.city);
+      console.log('city', data);
+      if (data) {
+        this.loginForm.controls['area'].setValue(data.city);
       }
     });
     profileModal.present();

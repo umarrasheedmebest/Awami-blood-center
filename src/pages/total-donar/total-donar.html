@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title>Total Donars</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid *ngIf="donars">
+    <ion-row justify-content-center class="header-footer">
+      <ion-col col-6>
+       Blood Group
+      </ion-col>
+      <ion-col col-6>
+        Count
+     </ion-col>
+    </ion-row>
+    <ion-row justify-content-center class="top-row">
+      <ion-col col-6>
+       A+
+      </ion-col>
+      <ion-col col-6>
+        {{aPos?.length}}
+     </ion-col>
+    </ion-row>
+    <ion-row justify-content-center class="top-row">
+      <ion-col col-6>
+       A-
+      </ion-col>
+      <ion-col col-6>
+        {{aNeg?.length}}
+     </ion-col>
+    </ion-row>
+    <ion-row justify-content-center class="top-row">
+      <ion-col col-6>
+       B+
+      </ion-col>
+      <ion-col col-6>
+        {{bPos?.length}}
+     </ion-col>
+    </ion-row>
+    <ion-row justify-content-center class="top-row">
+      <ion-col col-6>
+       B-
+      </ion-col>
+      <ion-col col-6>
+        {{bNeg?.length}}
+     </ion-col>
+    </ion-row>
+    <ion-row justify-content-center class="top-row">
+      <ion-col col-6>
+       AB+
+      </ion-col>
+      <ion-col col-6>
+        {{abPos?.length}}
+     </ion-col>
+    </ion-row>
+    <ion-row justify-content-center class="top-row">
+      <ion-col col-6>
+       AB-
+      </ion-col>
+      <ion-col col-6>
+        {{abNeg?.length}}
+     </ion-col>
+    </ion-row>
+    <ion-row justify-content-center class="top-row">
+      <ion-col col-6>
+       O+
+      </ion-col>
+      <ion-col col-6>
+        {{oPos?.length}}
+     </ion-col>
+    </ion-row>
+    <ion-row justify-content-center class="top-row">
+      <ion-col col-6>
+       O-
+      </ion-col>
+      <ion-col col-6>
+        {{oNeg?.length}}
+     </ion-col>
+    </ion-row>
+    <ion-row justify-content-center class="header-footer">
+      <ion-col col-6>
+       Total
+      </ion-col>
+      <ion-col col-6>
+        {{donars?.length}}
+     </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform, Events } from 'ionic-angular';
+import { Nav, Platform, Events, AlertController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
@@ -18,6 +18,8 @@ import { TermsAndConditionsPage } from '../pages/terms-and-conditions/terms-and-
 import { Storage } from '@ionic/storage';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { HelpPage } from '../pages/help/help';
+import { TotalDonarPage } from '../pages/total-donar/total-donar';
+import { OneSignal } from '@ionic-native/onesignal';
 
 @Component({
   templateUrl: 'app.html'
@@ -25,23 +27,24 @@ import { HelpPage } from '../pages/help/help';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any ;//= HelpPage;
+  rootPage: any;//= TotalDonarPage;
   userData: any;
-
+  isPush: boolean = false;
   pages: Array<{ title: string, component: any }>;
 
-  constructor(private screenOrientation: ScreenOrientation, private storage: Storage, public afAuth: AngularFireAuth, public events: Events, public auth: AuthService, public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(private oneSignal: OneSignal, private alertCtrl: AlertController, private screenOrientation: ScreenOrientation, private storage: Storage, public afAuth: AngularFireAuth, public events: Events, public auth: AuthService, public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
     this.subscribeEvent();
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'All Donars', component: DonarListPage },
+      { title: 'Blood Group Counts', component: TotalDonarPage },
       { title: 'My Blood Requests', component: MyRequestsPage },
       { title: 'Blood Requests', component: OthersRequestsPage },
       { title: 'Settings', component: UserInfoPage },
-      { title: 'About Us', component: AboutUsPage },
       { title: 'Help', component: HelpPage },
+      { title: 'About Us', component: AboutUsPage },
       { title: 'Terms and Conditions', component: TermsAndConditionsPage },
     ];
 
@@ -54,36 +57,38 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
-
-      if(this.auth.isOnline()) {
-      this.afAuth.authState.take(1).subscribe(data => {
-        if (data) {
-          firebase.database().ref(`profile/${data.uid}`).on('value', (snapshot) => {
-            let value = snapshot.val();
-            console.log('value', snapshot.val());
-            if (value) {
-              this.events.publish('user:created', value);
-              this.rootPage = HomePage;
-            } else {
-              this.rootPage = LoginPage;
-            }
+      this.oneSignalPush();
+      if (this.auth.isOnline()) {
+        this.afAuth.authState.take(1).subscribe(data => {
+          if (data) {
+            firebase.database().ref(`profile/${data.uid}`).on('value', (snapshot) => {
+              let value = snapshot.val();
+              console.log('value', snapshot.val());
+              if (value) {
+                this.events.publish('user:created', value);
+                if(!this.isPush) {
+                  this.rootPage = HomePage;
+                }
+              } else {
+                this.rootPage = LoginPage;
+              }
+            });
+          } else {
+            this.rootPage = InfoPage;
+          }
+        },
+          () => {
+            this.rootPage = InfoPage;
           });
-        } else {
-          this.rootPage = InfoPage;
-        }
-      },
-        () => {
-          this.rootPage = InfoPage;
-        });
       } else {
-          this.storage.get('userInfo').then(value=>{
-            if(value) {
-              this.events.publish('user:created', value);
-              this.rootPage = HomePage;
-            } else {
-              this.rootPage = InfoPage;
-            }
-          });
+        this.storage.get('userInfo').then(value => {
+          if (value) {
+            this.events.publish('user:created', value);
+            this.rootPage = HomePage;
+          } else {
+            this.rootPage = InfoPage;
+          }
+        });
       }
     });
   }
@@ -91,7 +96,7 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.push(page.component, {data: true});
+    this.nav.push(page.component, { data: true });
   }
 
   subscribeEvent() {
@@ -107,6 +112,49 @@ export class MyApp {
   }
 
   openSettings() {
-    this.nav.push(UserInfoPage, {data: true});
+    this.nav.push(UserInfoPage, { data: true });
+  }
+
+  oneSignalPush() {
+    this.oneSignal.startInit('eebba080-72a6-48e5-9f1c-89d602419f40', '926099624994');
+
+   // this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.InAppAlert);
+
+    this.oneSignal.handleNotificationReceived().subscribe(() => {
+      // do something when notification is received
+      console.log("push notification opened");
+
+    });
+
+    this.oneSignal.handleNotificationOpened().subscribe((data) => {
+      // do something when a notification is opened
+      this.isPush = true;
+      this.showPrompt();
+    });
+
+    this.oneSignal.endInit();
+  }
+
+  showPrompt() {
+    const prompt = this.alertCtrl.create({
+      title: 'Have you donated blood Recently ?',
+      message: "Please click yes if you donated otherwise click no",
+      buttons: [
+        {
+          text: 'NO',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Yes',
+          handler: data => {
+            this.nav.push(UserInfoPage, { push: true });
+          }
+        }
+      ]
+    });
+    prompt.present();
   }
 }
+
