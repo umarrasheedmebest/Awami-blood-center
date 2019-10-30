@@ -38,7 +38,7 @@
     "angular-typing-animation": "^0.5.4",
     "angularfire2": "^5.1.0",
     "call-number": "^1.0.1",
-    "cordova-android": "^7.0.0",
+    "cordova-android": "6.3.0",
     "cordova-plugin-crop": "^0.4.0",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-facebook4": "^3.1.0",

@@ -7,6 +7,7 @@ import { HomePage } from '../home/home';
 import firebase from 'firebase';
 import { Facebook } from '@ionic-native/facebook'
 import { UserInfoPage } from '../user-info/user-info';
+import { ForgotPasswordPage } from '../forgot-password/forgot-password';
 
 @IonicPage()
 @Component({
@@ -33,6 +34,10 @@ export class LoginPage {
 
   goToRegister() {
     this.navCtrl.push(SignUpPage)
+  }
+
+  goToForgotPassword() {
+    this.navCtrl.push(ForgotPasswordPage)
   }
 
   login() {

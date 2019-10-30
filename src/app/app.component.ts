@@ -56,7 +56,7 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+      // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
       this.oneSignalPush();
       if (this.auth.isOnline()) {
         this.afAuth.authState.take(1).subscribe(data => {

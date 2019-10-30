@@ -40,6 +40,7 @@ import { CitiesListPage } from '../pages/cities-list/cities-list';
 import { HelpPage } from '../pages/help/help';
 import { TotalDonarPage } from '../pages/total-donar/total-donar';
 import { OneSignal } from '@ionic-native/onesignal';
+import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { OneSignal } from '@ionic-native/onesignal';
     // TypingAnimationDirective,
     // CitiesListPage,
     // HelpPage,
-    // TotalDonarPage
+    // TotalDonarPage,
+    // ForgotPasswordPage
   ],
   imports: [
     BrowserModule,
@@ -87,7 +89,8 @@ import { OneSignal } from '@ionic-native/onesignal';
     TermsAndConditionsPage,
     CitiesListPage,
     HelpPage,
-    TotalDonarPage
+    TotalDonarPage,
+    ForgotPasswordPage
   ],
   providers: [
     StatusBar,

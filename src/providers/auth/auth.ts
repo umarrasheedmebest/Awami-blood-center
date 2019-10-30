@@ -90,6 +90,9 @@ export class AuthService {
     toast.present();
 }
 
+resetPassword(email: string) {
+  return this.afAuth.auth.sendPasswordResetEmail(email);
+}
 
 isOnline(): boolean {
 

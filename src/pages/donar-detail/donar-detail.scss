@@ -1,5 +1,27 @@
 page-donar-detail {
     .label-md {
-         margin: 0px !important; 
+        margin: 0px !important;
+    }
+
+    ion-avatar img, ion-thumbnail img {
+        display: block;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        margin-left: -50px;
+        border-radius: 50%;
+    }
+    .card-md {
+        margin-top: 50px;
+        padding-top: 50px;
+    }
+    .name {
+        text-align: center;
+        margin-top: 5px;
+    }
+    .row-margin {
+        margin-top: 10px;
     }
 }

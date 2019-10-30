@@ -18,10 +18,11 @@
   <ion-list *ngIf="donars?.length > 0">
     <ion-item  *ngFor="let donar of donars| searchDonar:'bloodGroup,area,fullName':query" (click)="viewDetail(donar)">
       <ion-avatar item-start>
-        <img [src]="donar?.pic ? donar?.pic : 'assets/imgs/place-holder.jpg'" onerror="this.onerror=null;this.src='assets/imgs/place-holder.jpg';">
+        <img [src]="donar?.pic ? donar?.pic : 'assets/imgs/place-holder.png'" onerror="this.onerror=null;this.src='assets/imgs/place-holder.png';">
       </ion-avatar>
-      <span class="circle" *ngIf="!getAvailable(donar)"></span>
-      <span class="circle-green" *ngIf="getAvailable(donar)"></span>
+      <!-- <span class="circle" *ngIf="!getAvailable(donar)"></span> -->
+      <!-- <span class="circle-green" *ngIf="getAvailable(donar)"></span> -->
+      <img class="img-right" [src]="!getAvailable(donar) ? 'assets/imgs/bag_empt.jpg' : 'assets/imgs/blood_bag.jpg'">
       <h2>{{donar.fullName}}</h2>
       <p>{{donar.bloodGroup}}</p>
     </ion-item>
